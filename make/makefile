@@ -132,8 +132,8 @@ HOST =	objs/host-main.o objs/host-args.o objs/host-device.o objs/host-stdio.o \
 
 
 # Directly linked r3 executable:
-r3:	$(objs) $(HOST)
-	$(CC) -o r3 $(objs) $(HOST) $(CLIB)
+r3:	objs-dir $(OBJS) $(HOST)
+	$(CC) -o r3 $(OBJS) $(HOST) $(CLIB)
 	$(STRIP) r3
 	-$(NM) -a r3
 	ls -l r3
