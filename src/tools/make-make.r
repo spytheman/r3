@@ -41,7 +41,7 @@ makefile-head:
 #    make TOOLS=~/amiga/amiga/bin/ppc-amigaos- INCL=/SDK/newlib/include
 
 # For the build toolchain:
-CC=	$(TOOLS)gcc
+CC=	$(TOOLS)gcc -m32
 NM=	$(TOOLS)nm
 STRIP=	$(TOOLS)strip
 
@@ -88,7 +88,7 @@ make:
 	$(REBOL) $T/make-make.r $(OS_ID)
 
 clean:
-	@-rm objs/* libr3.so
+	@-rm -f objs/* libr3.so
 
 all:
 	make clean
@@ -147,7 +147,7 @@ r3:	objs-dir $(OBJS) $(HOST)
 	ls -l r3
 
 objs-dir:
-	mkdir objs
+	@-mkdir objs
 }
 
 makefile-so: {
