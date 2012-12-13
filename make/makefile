@@ -30,14 +30,14 @@ I= -I$(INCL) -I$S/include/
 
 TO_OS=	 TO_LINUX
 OS_ID=	 0.4.4
-RAPI_FLAGS=	  -O2 -fvisibility=hidden
-HOST_FLAGS=	  -O2 -fvisibility=hidden -D_FILE_OFFSET_BITS=64
+RAPI_FLAGS=	  -O2 -fvisibility=hidden -m32
+HOST_FLAGS=	  -O2 -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -m32
 RLIB_FLAGS=	
 
 # Flags for core and for host:
 RFLAGS= -c -D$(TO_OS) -DREB_API  $(RAPI_FLAGS) $I
 HFLAGS= -c -D$(TO_OS) -DREB_CORE $(HOST_FLAGS) $I
-CLIB=   -lc -lm  -ldl
+CLIB=   -lc -lm  -ldl -m32
 
 # REBOL builds various include files:
 REBOL=	$(CD)r3-make -qs
