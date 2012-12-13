@@ -79,11 +79,7 @@ void *Term_IO;
 */
 
 
-static void Handle_Signal(int sig)
-{
-	Put_Str("[escape]");
-	RL_Escape(0);
-}
+static void Handle_Signal(int sig);
 
 static void Init_Signals(void)
 {
@@ -104,6 +100,17 @@ static void close_stdio(void)
 		fclose(Std_Echo);
 		Std_Echo = 0;
 	}
+}
+
+
+static void Handle_Signal(int sig)
+{
+	if((SIGINT == sig) || (SIGTERM == sig)){
+		close_stdio();
+		exit(0);
+	}
+	Put_Str("[escape]");
+	RL_Escape(0);
 }
 
 /***********************************************************************
