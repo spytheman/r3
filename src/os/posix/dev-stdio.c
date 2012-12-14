@@ -78,8 +78,13 @@ void *Term_IO;
 #define FLUSH()		fflush(stdout)
 */
 
-
-static void Handle_Signal(int sig);
+static void Handle_Signal(int sig)
+{
+	char *buf = strdup("[escape]");
+	Put_Str(buf);
+	free(buf);
+	RL_Escape(0);
+}
 
 static void Init_Signals(void)
 {
@@ -102,16 +107,6 @@ static void close_stdio(void)
 	}
 }
 
-
-static void Handle_Signal(int sig)
-{
-	if((SIGINT == sig) || (SIGTERM == sig)){
-		close_stdio();
-		exit(0);
-	}
-	Put_Str("[escape]");
-	RL_Escape(0);
-}
 
 /***********************************************************************
 **
