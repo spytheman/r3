@@ -131,3 +131,5 @@ make/objs/u-png.o
 make/objs/u-sha1.o
 make/objs/u-zlib.o
 make/r3
+make/host
+make/libr3.so
