@@ -165,8 +165,8 @@ libr3.so:	$(OBJS)
 # PUBLIC: Host using the shared lib:
 host:	$(HOST)
 	$(CC) -o host $(HOST) libr3.so $(CLIB)
-	$(STRIP) libr3.lib
-	$(STRIP) host
+	@-$(STRIP) libr3.lib
+	@-$(STRIP) host
 	ls -l host
 	echo "export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH"
 }
