@@ -168,7 +168,7 @@ host:	$(HOST)
 	@-$(STRIP) libr3.lib
 	@-$(STRIP) host
 	ls -l host
-	echo "export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH"
+	echo "export LD_LIBRARY_PATH=.:$$LD_LIBRARY_PATH"
 }
 
 makefile-dyn: {
