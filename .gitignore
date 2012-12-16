@@ -2,6 +2,8 @@
 ## REBOL R3
 #################
 
+make/host
+make/libr3.so
 make/r3*
 make/objs/
 src/boot/boot-code.r
