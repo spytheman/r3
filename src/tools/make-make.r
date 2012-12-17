@@ -179,7 +179,7 @@ host$(BIN_SUFFIX):	$(HOST)
 	$(CC) -o host$(BIN_SUFFIX) $(HOST) libr3.so $(CLIB)
 	$(STRIP) host$(BIN_SUFFIX)
 	$(LS) host$(BIN_SUFFIX)
-	echo "export LD_LIBRARY_PATH=.:$$LD_LIBRARY_PATH"
+	echo 'export LD_LIBRARY_PATH=.:$$LD_LIBRARY_PATH'
 }
 
 makefile-dyn: {
